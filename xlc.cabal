@@ -1,0 +1,91 @@
+cabal-version: 2.2
+
+-- This file has been generated from package.yaml by hpack version 0.36.0.
+--
+-- see: https://github.com/sol/hpack
+
+name:           xlc
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/kevorr/xlc#readme>
+homepage:       https://github.com/kevorr/xlc#readme
+bug-reports:    https://github.com/kevorr/xlc/issues
+author:         Kevin Orr
+maintainer:     Kevin Orr
+copyright:      2024 Kevin Orr
+license:        BSD-3-Clause
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    CHANGELOG.md
+
+source-repository head
+  type: git
+  location: https://github.com/kevorr/xlc
+
+library
+  exposed-modules:
+      XLam
+      XLam.Lang
+      XLam.Library
+  other-modules:
+      Paths_xlc
+  autogen-modules:
+      Paths_xlc
+  hs-source-dirs:
+      src
+  default-extensions:
+      BlockArguments
+      LambdaCase
+      OverloadedStrings
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      base >=4.7 && <5
+    , bytestring
+    , containers
+    , directory
+    , filepath >=1.4.100 && <1.5.3
+    , process
+    , string-conversions
+    , stringsearch
+    , text >=2.0 && <2.2
+    , time
+    , zip-archive ==0.4.*
+  default-language: GHC2021
+
+executable xlc-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_xlc
+  autogen-modules:
+      Paths_xlc
+  hs-source-dirs:
+      app
+  default-extensions:
+      BlockArguments
+      LambdaCase
+      OverloadedStrings
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , xlc
+  default-language: GHC2021
+
+test-suite xlc-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_xlc
+  autogen-modules:
+      Paths_xlc
+  hs-source-dirs:
+      test
+  default-extensions:
+      BlockArguments
+      LambdaCase
+      OverloadedStrings
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , xlc
+  default-language: GHC2021
